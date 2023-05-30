@@ -6,8 +6,10 @@ import {
   CART_SAVE_PAYMENT_METHOD,
 } from "../constants/cartConstants";
 
+const url = 'https://proshop-demo33.herokuapp.com'
+
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/products/${id}`);
+  const { data } = await axios.get(`${url}/api/products/${id}`);
 
   dispatch({
     type: CART_ADD_ITEM,

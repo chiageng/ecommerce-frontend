@@ -35,6 +35,8 @@ import {
 import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import axios from "axios";
 
+const url = 'https://proshop-demo33.herokuapp.com'
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -47,7 +49,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      '/api/users/login/',
+      `${url}/api/users/login/`,
       {username: email, password: password },
       config,
     );
@@ -90,7 +92,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      '/api/users/register/',
+      `${url}/api/users/register/`,
       {'name': name, 'email': email, 'password': password },
       config,
     );
@@ -133,7 +135,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/users/${id}`,
+      `${url}/api/users/${id}`,
       config,
     );
 
@@ -170,7 +172,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/users/profile/update/`,
+      `${url}/api/users/profile/update/`,
       user,
       config,
     );
@@ -213,7 +215,7 @@ export const listUsers = (user) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/users/`,
+      `${url}/api/users/`,
       config,
     );
 
@@ -248,7 +250,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.delete(
-      `/api/users/delete/${id}`,
+      `${url}/api/users/delete/${id}`,
       config,
     );
 
@@ -283,7 +285,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/users/update/${user._id}/`,
+      `${url}/api/users/update/${user._id}/`,
       user,
       config,
     );

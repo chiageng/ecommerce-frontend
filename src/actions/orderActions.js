@@ -28,6 +28,8 @@ import {
 } from "../constants/orderConstants";
 import axios from "axios";
 
+const url = 'https://proshop-demo33.herokuapp.com'
+
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -43,7 +45,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.post(
-      `/api/orders/add/`,
+      `${url}/api/orders/add/`,
       order,
       config,
     );
@@ -82,7 +84,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/orders/${id}/`,
+      `${url}/api/orders/${id}/`,
       config,
     );
 
@@ -118,7 +120,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/orders/${id}/pay/`,
+      `${url}/api/orders/${id}/pay/`,
       paymentResult,
       config,
     );
@@ -155,7 +157,7 @@ export const listMyOrders = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/orders/myorders/`,
+      `${url}/api/orders/myorders/`,
       config,
     );
 
@@ -192,7 +194,7 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `/api/orders/`,
+      `${url}/api/orders/`,
       config,
     );
 
@@ -229,7 +231,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/orders/${order._id}/deliver/`,
+      `${url}/api/orders/${order._id}/deliver/`,
       {},
       config,
     );
